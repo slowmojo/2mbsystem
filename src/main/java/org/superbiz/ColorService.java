@@ -52,4 +52,12 @@ public class ColorService {
     public Color getColorObject() {
         return new Color("black", 0xE7, 0x71, 0x00);
     }
+
+    @Path("geo")
+    @GET
+    @Produces({ APPLICATION_JSON })
+    public Color getGeoAds() {
+        return new Color("yellow", 0xE7, 0x71, 0x00);
+    }
+
 }

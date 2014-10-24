@@ -108,7 +108,22 @@ public class ColorServiceTest extends Assert {
         final Color color = webClient.path("color/object").get(Color.class);
 
         assertNotNull(color);
-        assertEquals("orange", color.getName());
+        assertEquals("black", color.getName());
+        assertEquals(0xE7, color.getR());
+        assertEquals(0x71, color.getG());
+        assertEquals(0x00, color.getB());
+    }
+
+    @Test
+    public void getGeoAds() throws Exception {
+
+        final WebClient webClient = WebClient.create(webappUrl.toURI());
+        webClient.accept(MediaType.APPLICATION_JSON);
+
+        final Color color = webClient.path("color/geo").get(Color.class);
+
+        assertNotNull(color);
+        assertEquals("yellow", color.getName());
         assertEquals(0xE7, color.getR());
         assertEquals(0x71, color.getG());
         assertEquals(0x00, color.getB());
